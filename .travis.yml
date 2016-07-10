@@ -1,24 +1,25 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g bower
+- bower --version
+- npm install phantomjs-prebuilt
+- phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: AwdI+Mxh9DAyGw4iu1jCJR/I4XAFOehIDrqdixIdBFlkiw6wlSH2tgLDe5DSDVIsLv4se1mEMkRq4hqo+ciniTimPZjMCTY5fICnW6U+tGuhxMk2OOFQzZfOOv7IfKwsI+qWCm0ig7/CCX1J2tipLrs688BabhnBr/P2dG2LjHmsESmpOvahryAy5SyZCWyFWWFpYnieSzDFzhiihayO6FhYPQBEC3N57d1OT0F54dwPMh/JcPncvlWYkehq9rhFNqFvc/QtW/E36TTQRQ906fnXTz74jEkMUfRq5ar0MYUyd4/rfJZnjs9dlTNU6iu+SavQN/svUG+7Z9c+sdDUe/0S4mPwUxlG9LByCcZNarPEqlQXIN426C5v1rtBKcdOShOFZVyCez56spUpWSJkFFJE7Bn2FZ+rwPClyky3+ZJuOE5ujG3WbVLKSqDqbuNMF4CUnJxsKzLBCNyuHVKQJjZad2Mt74G7ch44YvvorCXni0xv+tqUIh5s23aWsJwVoawzTRXyX5SfjBPGvwcglAsuTdOeLAWZB/V28uW7ObyKg3EE5vNUBgOim8XNlfvZmhakmXMmji3mI55ckHB4a0tXzo4kJmbuKohgHmCGyBiFSwCQeOqw5JvjWjNVxyrqf62QxwYzF8tE3JDkASmDuzXVJysei9C7W4XkEKs2VUQ=
+  app: secret-hollows-92259
+  on:
+    repo: vasilebuza/peepchat_ui
